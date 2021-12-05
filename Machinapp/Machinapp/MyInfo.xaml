@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Machinapp.MyInfo"
+             xmlns:local="clr-namespace:Machinapp.MarkupExtensions"
+             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#212529">
+            <Image Source="{local:EmbeddedImage Machinapp.Images.chia.png}" VerticalOptions="Center" HorizontalOptions="Center" Scale="1" Margin="50"/>
+            <Label Text="This app was created in my free time as a contribution to Machinaris app and its creator.&#10;It is published for free use and without any warranties.&#10;&#10; www.machinaris.app" 
+                   
+            TextColor="#c7c7c7" FontSize="22" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Padding="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+            <Button x:Name="bClose" BackgroundColor="Black" TextColor="#c7c7c7" Text="Close" FontAttributes="Bold" CornerRadius="15" Clicked="bClose_Clicked"/>
+            
+          
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Machinapp.MySettings"
+             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <Grid RowSpacing="20" ColumnSpacing="30" BackgroundColor="#212529" Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Settings" FontSize="22" TextColor="#3aac59" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Machinaris IP:" TextColor="#c7c7c7" FontSize="22" HorizontalTextAlignment="Start" VerticalTextAlignment="End"/>
+            <Editor x:Name="eIPAddress" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="IP Address" PlaceholderColor="#3aac59" TextColor="#3aac59" VerticalOptions="Start"/>
+
+            <Label x:Name="lInterval" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Widget refresh interval:" TextColor="#c7c7c7" FontSize="22" HorizontalTextAlignment="Start" VerticalTextAlignment="End"/>
+            <Slider x:Name="sInterval" Grid.Row="4" Grid.ColumnSpan="2" Maximum="120.0" Minimum="2.0" Value="2.0" ThumbColor="#3aac59" ValueChanged="sInterval_ValueChanged"/>
+
+            <Button x:Name="bCancel" Grid.Row="6" Grid.Column="0" Text="Cancel" FontAttributes="Bold" BackgroundColor="Black" TextColor="#c7c7c7" CornerRadius="15" Clicked="BCancel_Clicked"/>
+            <Button x:Name="bSave" Grid.Row="6" Grid.Column="1" Text="Save" FontAttributes="Bold" BackgroundColor="Black" TextColor="#3aac59" CornerRadius="15" Clicked="BSave_Clicked"/>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

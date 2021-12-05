@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Machinapp.MainPage"
+             xmlns:local="clr-namespace:Machinapp.MarkupExtensions"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             NavigationPage.HasNavigationBar="False"
+             >
+
+    <RefreshView x:Name="myRefreshView" RefreshColor="#3aac59" Refreshing="RefreshView_Refreshing">
+    <ScrollView>
+    <Grid RowSpacing="5" ColumnSpacing="0" BackgroundColor="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Machinapp" BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        <Label x:Name="lExch" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text=" XCH: " BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18" HorizontalTextAlignment="Start"/>
+        
+        <Image Source="{local:EmbeddedImage Machinapp.Images.settings-128.png}" Grid.Row="0" Grid.Column="3" HorizontalOptions="Start" Scale="0.6">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="OnSettingsTapped"
+                    NumberOfTapsRequired="1" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="{local:EmbeddedImage Machinapp.Images.info-128.png}" Grid.Row="0" Grid.Column="3" HorizontalOptions="End" Scale="0.6">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                Tapped="OnInfoTapped"
+                NumberOfTapsRequired="1" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="ETW: " BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" HorizontalTextAlignment="End"/>
+        <Label x:Name="lETW" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" BackgroundColor="#212529" Text="???" TextColor="#3aac59" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+        <Label Grid.Row="2" Grid.Column="0" Text="Plotting: " BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" HorizontalTextAlignment="End"/>
+        <Label x:Name="lPlottingsStatus" Grid.Row="2" Grid.Column="1" BackgroundColor="#212529" Text="???" TextColor="#3aac59" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+        <Label Grid.Row="2" Grid.Column="2" Text="Status: " BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" HorizontalTextAlignment="End"/>
+        <Label x:Name="lFarmStatus" Grid.Row="2" Grid.Column="3" BackgroundColor="#212529" Text="???" TextColor="#3aac59" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+
+                <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" RowSpacing="0" ColumnSpacing="0" BackgroundColor="#212529">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lTotalPlots" Grid.Row="0" Grid.Column="0" Text="0" BackgroundColor="#212529" TextColor="#3aac59" HorizontalOptions="Fill" VerticalOptions="End" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Text="Total Plots" BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" HorizontalTextAlignment="Center"/>
+        </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" RowSpacing="0" ColumnSpacing="0" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="#212529">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lTotalPlotsSize" Grid.Row="0" Grid.Column="0" Text="0 TiB" BackgroundColor="#212529" TextColor="#3aac59" HorizontalOptions="Fill" VerticalOptions="End" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Text="Total Plots Size" BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" HorizontalTextAlignment="Center"/>
+        </Grid>
+
+                <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" RowSpacing="0" ColumnSpacing="0" HorizontalOptions="Fill" BackgroundColor="#212529">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+                    <Label x:Name="lXCHBalance" Grid.Row="0" Grid.Column="0" Text="0.0000" BackgroundColor="#212529" TextColor="#3aac59" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="XCH Balance" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="21" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                    <Label x:Name="lXCHFarmed" Grid.Row="0" Grid.Column="1" Text="0" TextColor="#3aac59" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="XCH Farmed" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="21" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="lXCHNetspace" Grid.Row="0" Grid.Column="2" Text="0 EiB" TextColor="#3aac59" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="2" Text="Netspace" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="21" HorizontalTextAlignment="Center"/>
+             
+        </Grid>
+
+                <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" RowSpacing="0" ColumnSpacing="0" HorizontalOptions="Fill" BackgroundColor="#212529">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lXCHBlockchainStatus" Grid.Row="0" Grid.Column="0" Text="???" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Blockchain Status" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="21" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                    <Label x:Name="lXCHWalletStatus" Grid.Row="0" Grid.Column="1" Text="???" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="Wallet Satus" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="21" HorizontalTextAlignment="Center"/>
+                   
+                </Grid>
+
+                <BoxView Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="#212529" />
+                <forms:ChartView x:Name="chChallenges" HeightRequest="230" Grid.Row="6" Grid.ColumnSpan="4" BackgroundColor="#212529" Margin="5"/>
+                <Label x:Name="lMaxTime" Grid.Row="6" Grid.ColumnSpan="4" HorizontalOptions="Start" VerticalOptions="End" Text="   Max response time: " TextColor="#c7c7c7"/>
+                <Label x:Name="lNumChallenges" Grid.Row="6" Grid.ColumnSpan="4" HorizontalOptions="End" VerticalOptions="End" Text="" TextColor="#c7c7c7"/>
+                <Label x:Name="lAverageTime" Grid.Row="6" Grid.ColumnSpan="4" HorizontalOptions="Center" VerticalOptions="Start" Text="" TextColor="#c7c7c7"/>
+
+
+                <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" RowSpacing="0" ColumnSpacing="0" HorizontalOptions="Fill" BackgroundColor="#212529">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lPoolDifficulty" Grid.Row="0" Grid.Column="0" Text="???" TextColor="#3aac59" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Pool Difficulty" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="21" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                    <Label x:Name="lPoolPercentage" Grid.Row="0" Grid.Column="1" Text="???" TextColor="#3aac59" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="Successful points" TextColor="#c7c7c7" BackgroundColor="#212529" HorizontalOptions="Fill" VerticalOptions="Start" FontSize="21" HorizontalTextAlignment="Center"/>
+
+                </Grid>
+
+                <StackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" Padding="0" BackgroundColor="#212529">
+                    <Label Text="  Last 10 alerts:" TextColor="#3aac59" FontSize="20" FontAttributes="Bold"/>
+                    <CarouselView x:Name="listAlerts" BackgroundColor="#212529" Loop="False" Margin="10">
+                        <CarouselView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
+                        </CarouselView.ItemsLayout>
+
+                    </CarouselView>
+
+                </StackLayout>
+
+                <BoxView Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="#212529" />
+                <Label x:Name="lUpdated" Grid.Row="9" Grid.ColumnSpan="4" Grid.Column="0" BackgroundColor="#212529" TextColor="#3aac59" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+
+
+    </Grid>
+    </ScrollView>
+    </RefreshView>
+
+
+
+</ContentPage>
