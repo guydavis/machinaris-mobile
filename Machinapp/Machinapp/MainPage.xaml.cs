@@ -27,7 +27,7 @@ namespace Machinapp
         {
             if (String.IsNullOrEmpty(Preferences.Get("IP", String.Empty)))
             {
-                await DisplayAlert("Alert", "Please set Machinaris IP address in Settings first.", "OK");
+                await DisplayAlert("Alert", "Please set Machinaris IP address in Settings first!", "OK");
                 myRefreshView.IsRefreshing = false;
             }
             else
