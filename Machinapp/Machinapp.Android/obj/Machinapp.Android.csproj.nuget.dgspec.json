@@ -1,0 +1,147 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp.Android\\Machinapp.Android.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp.Android\\Machinapp.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp.Android\\Machinapp.Android.csproj",
+        "projectName": "Machinapp.Android",
+        "projectPath": "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp.Android\\Machinapp.Android.csproj",
+        "packagesPath": "C:\\Users\\Toto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp.Android\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\Toto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid12.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid12.0": {
+            "projectReferences": {
+              "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp\\Machinapp.csproj": {
+                "projectPath": "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp\\Machinapp.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid12.0": {
+          "dependencies": {
+            "Microcharts.Forms": {
+              "target": "Package",
+              "version": "[0.9.5.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Syncfusion.Xamarin.SfCarousel": {
+              "target": "Package",
+              "version": "[19.3.0.56, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2196, )"
+            },
+            "Xamarin.Forms.RangeSlider": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            }
+          }
+        }
+      }
+    },
+    "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp\\Machinapp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp\\Machinapp.csproj",
+        "projectName": "Machinapp",
+        "projectPath": "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp\\Machinapp.csproj",
+        "packagesPath": "C:\\Users\\Toto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Toto\\source\\repos\\Machinapp\\Machinapp\\Machinapp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Toto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microcharts.Forms": {
+              "target": "Package",
+              "version": "[0.9.5.9, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Syncfusion.Xamarin.SfCarousel": {
+              "target": "Package",
+              "version": "[19.3.0.56, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2196, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\bin\Debug\netstandard2.0\Machinapp.deps.json
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\bin\Debug\netstandard2.0\Machinapp.dll
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\bin\Debug\netstandard2.0\ref\Machinapp.dll
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\bin\Debug\netstandard2.0\Machinapp.pdb
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\MyInfo.xaml.g.cs
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\MySettings.xaml.g.cs
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.AssemblyInfoInputs.cache
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.AssemblyInfo.cs
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.csproj.CoreCompileInputs.cache
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.dll
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\ref\Machinapp.dll
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.pdb
