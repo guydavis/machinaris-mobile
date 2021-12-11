@@ -14,3 +14,4 @@ C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.
 C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.dll
 C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\ref\Machinapp.dll
 C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.pdb
+C:\Users\Toto\source\repos\Machinapp\Machinapp\Machinapp\obj\Debug\netstandard2.0\Machinapp.csproj.AssemblyReference.cache

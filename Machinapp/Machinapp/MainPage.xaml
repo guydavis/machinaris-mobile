@@ -6,7 +6,6 @@
              xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              NavigationPage.HasNavigationBar="False"
              >
-
     <RefreshView x:Name="myRefreshView" RefreshColor="#3aac59" Refreshing="RefreshView_Refreshing">
     <ScrollView>
     <Grid RowSpacing="5" ColumnSpacing="0" BackgroundColor="Black">
@@ -138,16 +137,31 @@
 
                 </Grid>
 
-                <StackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" Padding="0" BackgroundColor="#212529">
+
+                <StackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="#212529" Spacing="2" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand">
                     <Label Text="  Last 10 alerts:" TextColor="#3aac59" FontSize="20" FontAttributes="Bold"/>
-                    <CarouselView x:Name="listAlerts" BackgroundColor="#212529" Loop="False" Margin="10">
+                    <CarouselView ItemsSource="{Binding MySimpleAlerts}" BackgroundColor="#212529" Loop="False" Margin="10" HeightRequest="500">
                         <CarouselView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
                         </CarouselView.ItemsLayout>
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame BorderColor="#c7c7c7" BackgroundColor="#212529" CornerRadius="10">
+                                        <StackLayout>
+                                            <Label TextColor="#3aac59" Text="{Binding message_time}"/>
+                                            <Label TextColor="#c7c7c7" Text="{Binding message}"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
 
                     </CarouselView>
 
                 </StackLayout>
+
+
 
                 <BoxView Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="#212529" />
                 <Label x:Name="lUpdated" Grid.Row="9" Grid.ColumnSpan="4" Grid.Column="0" BackgroundColor="#212529" TextColor="#3aac59" HorizontalOptions="Center" VerticalOptions="Center"/>

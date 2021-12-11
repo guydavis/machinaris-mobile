@@ -17,17 +17,18 @@ namespace Machinapp
 {
     public partial class MainPage : ContentPage
     {
-       // public ObservableCollection<AlertList> AlertList { get; set; } = new ObservableCollection<AlertList>();
+        public ObservableCollection<SimpleAlertList> MySimpleAlerts { get; set; } = new ObservableCollection<SimpleAlertList>();
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = this;
         }
 
         async void RefreshView_Refreshing(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(Preferences.Get("IP", String.Empty)))
             {
-                await DisplayAlert("Alert", "Please set Machinaris IP address in Settings first.", "OK");
+                await DisplayAlert("Alert", "Please set Machinaris IP address in Settings first!", "OK");
                 myRefreshView.IsRefreshing = false;
             }
             else
@@ -67,7 +68,6 @@ namespace Machinapp
                 var resultWallets = JsonConvert.DeserializeObject<Wallets[]>(resultJsonWallets);
                 
                 var resultJsonChallenges = await httpClient.GetStringAsync("http://" + MachIP + ":8927/challenges/?page_size=100&page=1");
-
                 for (int i = 2; i < 11; i++)
                 {   
                     String TempResult = await httpClient.GetStringAsync("http://" + MachIP + ":8927/challenges/?page_size=100&page=" + i.ToString());
@@ -78,13 +78,24 @@ namespace Machinapp
                 }
 
                 String temp = resultJsonChallenges.Replace("\n", "").Replace("\r", "").Replace("][", ",");
-
                 var resultChallenges = JsonConvert.DeserializeObject<Challenges[]>(temp);
 
                 var resultJsonBlockchains = await httpClient.GetStringAsync("http://" + MachIP + ":8927/blockchains/");
                 var resultBlockchains = JsonConvert.DeserializeObject<Blockchains[]>(resultJsonBlockchains);
-                var resultJsonAlerts = await httpClient.GetStringAsync("http://" + MachIP + ":8927/alerts/?page_size=20");
+
+                var resultJsonAlerts = await httpClient.GetStringAsync("http://" + MachIP + ":8927/alerts/?page_size=100&page=1");
+                for (int i = 2; i < 11; i++)
+                {
+                    String TempResult = await httpClient.GetStringAsync("http://" + MachIP + ":8927/alerts/?page_size=100&page=" + i.ToString());
+
+                    if (TempResult.Contains("[]")) break;
+                    resultJsonAlerts += TempResult;
+
+                }
+
+                String temp2 = resultJsonAlerts.Replace("\n", "").Replace("\r", "").Replace("][", ",");
                 var resultAlerts = JsonConvert.DeserializeObject<Alerts[]>(resultJsonAlerts);
+
                 var resultJsonPools = await httpClient.GetStringAsync("http://" + MachIP + ":8927/pools/");
                 var resultPools = JsonConvert.DeserializeObject<Pools[]>(resultJsonPools);
                 
@@ -218,19 +229,32 @@ namespace Machinapp
 
                 if (resultAlerts != null)
                 {
-                    
-                    string[] final_alerts = new string[10];
+                    MySimpleAlerts.Clear();
 
-                    for (int i=0; i<10; i++)
+                    for (int i=(resultAlerts.Length - 1); i>=(resultAlerts.Length - 10); i--)
                     {
-                        final_alerts[i] = resultAlerts[i].created_at.ToString() + " " + resultAlerts[i].message;
+                        SimpleAlertList one_alert = new SimpleAlertList
+                        {
+                            message_time = resultAlerts[i].created_at,
+                            message = resultAlerts[i].message
+                        };
+                        MySimpleAlerts.Add(one_alert);
                     }
 
-                    listAlerts.ItemsSource = final_alerts;
-                
+                    
+
+                    //string[] final_alerts = new string[10];
+
+                    //for (int i=(resultAlerts.Length - 1); i>=(resultAlerts.Length - 10); i--)
+                    //{
+                    //    final_alerts[(resultAlerts.Length - i)-1] = resultAlerts[i].created_at.ToString() + " " + resultAlerts[i].message;
+                    //}
+
+                    //listAlerts.ItemsSource = final_alerts;
+
                 }
 
-            myRefreshView.IsRefreshing = false;
+                myRefreshView.IsRefreshing = false;
             }
             catch (Exception ex)
             {
