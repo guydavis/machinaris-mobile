@@ -137,17 +137,16 @@
 
                 </Grid>
 
-
                 <StackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="#212529" Spacing="2" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand">
                     <Label Text="  Last 10 alerts:" TextColor="#3aac59" FontSize="20" FontAttributes="Bold"/>
-                    <CarouselView ItemsSource="{Binding MySimpleAlerts}" BackgroundColor="#212529" Loop="False" Margin="10" HeightRequest="500">
-                        <CarouselView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
-                        </CarouselView.ItemsLayout>
-                        <CarouselView.ItemTemplate>
+                    <CollectionView ItemsSource="{Binding MySimpleAlerts}" BackgroundColor="#212529" Margin="10">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="4"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
-                                    <Frame BorderColor="#c7c7c7" BackgroundColor="#212529" CornerRadius="10">
+                                    <Frame BorderColor="#c7c7c7" BackgroundColor="#212529" CornerRadius="10" Padding="10">
                                         <StackLayout>
                                             <Label TextColor="#3aac59" Text="{Binding message_time}"/>
                                             <Label TextColor="#c7c7c7" Text="{Binding message}"/>
@@ -155,13 +154,9 @@
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
-                        </CarouselView.ItemTemplate>
-
-                    </CarouselView>
-
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
-
-
 
                 <BoxView Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="#212529" />
                 <Label x:Name="lUpdated" Grid.Row="9" Grid.ColumnSpan="4" Grid.Column="0" BackgroundColor="#212529" TextColor="#3aac59" HorizontalOptions="Center" VerticalOptions="Center"/>
