@@ -130,8 +130,8 @@ namespace Machinapp
 
                 if (resultWallets != null)
                 {
-                // lXCHBalance.Text = resultWallets[0].cold_balance.ToString("n3");
-                lXCHBalance.Text = "0.01";
+                 lXCHBalance.Text = resultWallets[0].cold_balance.ToString("n3");
+                //lXCHBalance.Text = "0.01";
                 var resultstr1 = resultWallets[0].details.ToString().Split(new string[] { "\n" }, StringSplitOptions.None);
                 
                 string finalstr = resultstr1[1].Substring(resultstr1[1].IndexOf(':') + 1);
