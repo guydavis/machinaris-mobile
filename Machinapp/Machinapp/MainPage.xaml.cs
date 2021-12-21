@@ -51,8 +51,8 @@ namespace Machinapp
         {
             String MachIP = Preferences.Get("IP", String.Empty);
 
-            try
-            {
+            //try
+            //{
                 
                 
                 var httpClientExch = new HttpClient();
@@ -94,7 +94,7 @@ namespace Machinapp
                 }
 
                 String temp2 = resultJsonAlerts.Replace("\n", "").Replace("\r", "").Replace("][", ",");
-                var resultAlerts = JsonConvert.DeserializeObject<Alerts[]>(resultJsonAlerts);
+                var resultAlerts = JsonConvert.DeserializeObject<Alerts[]>(temp2);
 
                 var resultJsonPools = await httpClient.GetStringAsync("http://" + MachIP + ":8927/pools/");
                 var resultPools = JsonConvert.DeserializeObject<Pools[]>(resultJsonPools);
@@ -256,13 +256,13 @@ namespace Machinapp
                 }
 
                 myRefreshView.IsRefreshing = false;
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", ex.Message, "OK");
-                myRefreshView.IsRefreshing = false;
-                //  throw ex;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    await DisplayAlert("Error", ex.Message, "OK");
+            //    myRefreshView.IsRefreshing = false;
+            //    //  throw ex;
+            //}
 
         }
 
