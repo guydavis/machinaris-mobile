@@ -29,7 +29,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Machinapp" BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-        <Label x:Name="lExch" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text=" XCH: " BackgroundColor="#212529" TextColor="#c7c7c7" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18" HorizontalTextAlignment="Start"/>
+        <Label x:Name="lExch" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text=" XCH: " BackgroundColor="#212529" TextColor="#3aac59" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18" HorizontalTextAlignment="Start"/>
         
         <Image Source="{local:EmbeddedImage Machinapp.Images.settings-128.png}" Grid.Row="0" Grid.Column="3" HorizontalOptions="Start" Scale="0.6">
             <Image.GestureRecognizers>

@@ -51,8 +51,8 @@ namespace Machinapp
         {
             String MachIP = Preferences.Get("IP", String.Empty);
 
-            //try
-            //{
+            try
+            {
                 
                 
                 var httpClientExch = new HttpClient();
@@ -231,6 +231,19 @@ namespace Machinapp
                 {
                     MySimpleAlerts.Clear();
 
+                if (resultAlerts.Length < 11) {
+
+                    for (int i = (resultAlerts.Length - 1); i >= 0; i--)
+                    {
+                        SimpleAlertList one_alert = new SimpleAlertList
+                        {
+                            message_time = resultAlerts[i].created_at,
+                            message = resultAlerts[i].message
+                        };
+                        MySimpleAlerts.Add(one_alert);
+                    }
+                } else
+                {
                     for (int i = (resultAlerts.Length - 1); i >= (resultAlerts.Length - 10); i--)
                     {
                         SimpleAlertList one_alert = new SimpleAlertList
@@ -241,32 +254,34 @@ namespace Machinapp
                         MySimpleAlerts.Add(one_alert);
                     }
 
-
-
-                    //string[] final_alerts = new string[10];
-
-                    //for (int i = (resultAlerts.Length - 1); i >= (resultAlerts.Length - 10); i--)
-                    //{
-                    //    final_alerts[(resultAlerts.Length - i) - 1] = resultAlerts[i].created_at.ToString() + " " + resultAlerts[i].message;
-                    //}
-
-
-                    //listAlerts.ItemsSource = final_alerts;
-
                 }
 
+
+
+                //string[] final_alerts = new string[10];
+
+                //for (int i = (resultAlerts.Length - 1); i >= (resultAlerts.Length - 10); i--)
+                //{
+                //    final_alerts[(resultAlerts.Length - i) - 1] = resultAlerts[i].created_at.ToString() + " " + resultAlerts[i].message;
+                //}
+
+
+                //listAlerts.ItemsSource = final_alerts;
+
+                }   
+
                 myRefreshView.IsRefreshing = false;
-            //}
-            //catch (Exception ex)
-            //{
-            //    await DisplayAlert("Error", ex.Message, "OK");
-            //    myRefreshView.IsRefreshing = false;
-            //    //  throw ex;
-            //}
-
         }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "OK");
+                 myRefreshView.IsRefreshing = false;
+                //  throw ex;
+            }
 
-       
+}
+
+
     }
     
 }
