@@ -146,7 +146,7 @@ namespace Machinapp
                     
                     var resultstr1 = resultBlockchains[0].details.ToString().Split(new string[] { "\n" }, StringSplitOptions.None);
 
-                    string finalstr = resultstr1[0].Substring(resultstr1[0].IndexOf(':') + 1);
+                    string finalstr = resultstr1[3].Substring(resultstr1[3].IndexOf(':') + 1);
 
                     if (finalstr.Trim() == "Full Node Synced") lXCHBlockchainStatus.TextColor = Color.FromHex("#3aac59"); else lXCHBlockchainStatus.TextColor = Color.Red;
                     lXCHBlockchainStatus.Text = finalstr.Trim();
